@@ -1,6 +1,8 @@
 import { useState } from "react";
 import "./TodoList.css";
 import { TodoItem, type TodoItemProps } from "../TodoItem/TodoItem";
+import { Button } from "../Button/Button";
+import { Input } from "../Input/Input";
 
 type TodoItemData = Omit<TodoItemProps, "onToggle">;
 
@@ -34,6 +36,7 @@ export const TodoList = () => {
   const handleAdd = (): void => {
     const newTodoItem = { id: Date.now(), title: value, completed: false };
     setItems((prev => [...prev, newTodoItem]));
+    setValue("")
   };
 
   const handleToggle = (id: number): void => {
@@ -56,16 +59,8 @@ export const TodoList = () => {
   return (
     <div>
       <div className="todoInputRow">
-        <input
-          className="todoInput"
-          type="text"
-          name={value}
-          onChange={handleChange}
-          placeholder="Sem napiš úkol"
-        />
-        <button className="todoButton" onClick={handleAdd}>
-          Přidat úkol
-        </button>
+        <Input value={value} handleChange={handleChange} />
+        <Button handleAdd={handleAdd} />
       </div>
       {items.map((item) => (
         <TodoItem

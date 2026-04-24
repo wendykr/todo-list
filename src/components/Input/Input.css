@@ -1,0 +1,13 @@
+.input {
+  all: unset;
+  box-sizing: border-box;
+  flex: 1;
+  padding: 14px 18px;
+  border: 1px solid #ddd;
+  background-color: #fff;
+  font-size: 16px;
+
+  &:focus-visible {
+    outline: 2px solid #333;
+  }
+}
