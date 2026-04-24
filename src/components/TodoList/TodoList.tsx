@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { TodoItem, type TodoItemProps } from "./TodoItem"
 import "./TodoList.css";
+import { TodoItem, type TodoItemProps } from "../TodoItem/TodoItem";
 
 type TodoItemData = Omit<TodoItemProps, "onToggle">;
 
@@ -61,6 +61,7 @@ export const TodoList = () => {
           type="text"
           name={value}
           onChange={handleChange}
+          placeholder="Sem napiš úkol"
         />
         <button className="todoButton" onClick={handleAdd}>
           Přidat úkol
